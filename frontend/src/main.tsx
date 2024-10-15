@@ -7,7 +7,7 @@ import {
 import App from './App.tsx'
 import Main from './routes/Main.tsx'
 import Error from './components/error/Error.tsx'
-import './index.css'
+import './assets/styles/main.scss';
 
 const router = createBrowserRouter([
   {
