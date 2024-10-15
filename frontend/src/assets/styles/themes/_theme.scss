@@ -1,3 +1,11 @@
+input, select, button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Стили для логотипа */
+$color-logo: #fff;
+
 /* Стили для тем оформления */
 .light-theme {
   background-color: #fff;
