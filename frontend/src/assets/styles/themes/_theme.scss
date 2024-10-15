@@ -1,3 +1,15 @@
+/* Стили для тем оформления */
+.light-theme {
+  background-color: #fff;
+  color: #333;
+}
+
+.dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+
+
 // Темы
 @media (prefers-color-scheme: light) {
     :root {
