@@ -2,9 +2,21 @@
 // Стили для заголовка
 // ==========================
 header {
-    background-color: #a1cbf8; // Цвет фона заголовка
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #5A0; // Цвет фона заголовка
     color: #fff; // Цвет текста заголовка
-    padding: 15px 20px; // Отступы внутри заголовка
+    padding: 4px 24px; // Отступы внутри заголовка
     text-align: center; // Центрирование текста
     font-size: 1.5rem; // Размер шрифта заголовка
+    height: 60px;
+
+  &--fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
   }
+}

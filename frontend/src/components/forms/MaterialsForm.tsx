@@ -28,110 +28,121 @@ const MaterialForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Тип заготовки:</label>
-        <input
-          type="text"
-          name="type"
-          value={formData.type}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Диаметр заготовки (мм):</label>
-        <input
-          type="number"
-          name="initialDiameter"
-          value={formData.initialDiameter}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Диаметр готовой проволоки (мм):</label>
-        <input
-          type="number"
-          step="0.01"
-          name="finalDiameter"
-          value={formData.finalDiameter}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>1 ед. обжатие (%):</label>
-        <input
-          type="text"
-          name="compressionPerUnit"
-          value={formData.compressionPerUnit}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Количество переходов:</label>
-        <input
-          type="number"
-          name="numberOfTransitions"
-          value={formData.numberOfTransitions}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>σв (среднее напряжение) Н/мм²:</label>
-        <input
-          type="number"
-          name="averageStress"
-          value={formData.averageStress}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Скорость волочения (м/с):</label>
-        <input
-          type="number"
-          step="0.01"
-          name="drawingSpeed"
-          value={formData.drawingSpeed}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Начать с блока №:</label>
-        <input
-          type="text"
-          name="startingBlock"
-          value={formData.startingBlock}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Коэффициент распределения относительного обжатия по переходам:</label>
-        <input
-          type="number"
-          step="0.000000001"
-          name="compressionDistributionCoefficient"
-          value={formData.compressionDistributionCoefficient}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Содержание углерода, %:</label>
-        <input
-          type="text"
-          name="carbonContent"
-          value={formData.carbonContent}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>σв (среднее напряжение) кгс/мм² потенциальной заготовки:</label>
-        <input
-          type="text"
-          name="potentialAverageStress"
-          value={formData.potentialAverageStress}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Отправить</button>
-    </form>
+  <div className='input-group'>
+    <label className='input-group__label'>Тип заготовки:</label>
+    <input
+      className='input-group__input'
+      type="text"
+      name="type"
+      value={formData.type}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Диаметр заготовки (мм):</label>
+    <input
+      className='input-group__input'
+      type="number"
+      name="initialDiameter"
+      value={formData.initialDiameter}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Диаметр готовой проволоки (мм):</label>
+    <input
+      className='input-group__input'
+      type="number"
+      step="0.01"
+      name="finalDiameter"
+      value={formData.finalDiameter}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>1 ед. обжатие (%):</label>
+    <input
+      className='input-group__input'
+      type="text"
+      name="compressionPerUnit"
+      value={formData.compressionPerUnit}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Количество переходов:</label>
+    <input
+      className='input-group__input'
+      type="number"
+      name="numberOfTransitions"
+      value={formData.numberOfTransitions}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>σв (среднее напряжение) Н/мм²:</label>
+    <input
+      className='input-group__input'
+      type="number"
+      name="averageStress"
+      value={formData.averageStress}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Скорость волочения (м/с):</label>
+    <input
+      className='input-group__input'
+      type="number"
+      step="0.01"
+      name="drawingSpeed"
+      value={formData.drawingSpeed}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Начать с блока №:</label>
+    <input
+      className='input-group__input'
+      type="text"
+      name="startingBlock"
+      value={formData.startingBlock}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Коэффициент распределения относительного обжатия по переходам:</label>
+    <input
+      className='input-group__input'
+      type="number"
+      step="0.000000001"
+      name="compressionDistributionCoefficient"
+      value={formData.compressionDistributionCoefficient}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>Содержание углерода, %:</label>
+    <input
+      className='input-group__input'
+      type="text"
+      name="carbonContent"
+      value={formData.carbonContent}
+      onChange={handleChange}
+    />
+  </div>
+  <div className='input-group'>
+    <label className='input-group__label'>σв (среднее напряжение) кгс/мм² потенциальной заготовки:</label>
+    <input
+      className='input-group__input'
+      type="text"
+      name="potentialAverageStress"
+      value={formData.potentialAverageStress}
+      onChange={handleChange}
+    />
+  </div>
+  <button className='input-group__button' type="submit">Отправить</button>
+</form>
   );
 };
 
