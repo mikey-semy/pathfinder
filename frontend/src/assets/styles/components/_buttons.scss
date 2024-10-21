@@ -19,4 +19,16 @@ button {
       outline: 4px auto -webkit-focus-ring-color;
     }
   }
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
   
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
