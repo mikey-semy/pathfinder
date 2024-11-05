@@ -1,19 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { 
-  createBrowserRouter, 
-  RouterProvider 
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import {
+  createBrowserRouter,
+  RouterProvider
 } from 'react-router-dom';
-import App from './App.tsx'
-import Main from './routes/Main.tsx'
-import Error from './components/error/Error.tsx'
-import './assets/styles/main.scss';
+import ErrorPage from './pages/Error';
+import App from './App/App.tsx';
+import Main from './pages/Main/Main.tsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -21,12 +21,15 @@ const router = createBrowserRouter([
       },
     ],
   },
-  
+
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} />
+
+      <RouterProvider 
+        router={router} 
+        future={{ v7_startTransition: true }}
+      />
   </StrictMode>,
-)
+);
