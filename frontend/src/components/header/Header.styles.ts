@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     gap: 32px;
     
@@ -11,8 +11,8 @@ export const HeaderContainer = styled.header`
     height: 60px;
     width: 100%;
 
-    background: var(--header-background, #FFFFFF);
-    box-shadow: var(--box-shadow-default);
+    /* background-color: var(--header-background, #5A0); */
+    /* box-shadow: var(--box-shadow-default); */
     z-index: 999;
 
     @media (max-width: 1024px) {

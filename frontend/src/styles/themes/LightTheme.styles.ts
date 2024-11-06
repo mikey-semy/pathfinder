@@ -5,7 +5,7 @@ export const lightTheme = {
         accent: '#7839CD',
         background: '#F3F3F3',
         sidebarBackground: '#FFFFFF',
-        logoColor: '#000000',
+        logoColor: '#FFFFFF',
         navLabelColor: '#474747',
         navIconColor: '#000000',
         navLabelActiveColor: '#7839CD',
@@ -15,7 +15,7 @@ export const lightTheme = {
         navLinkActiveColor: '#7839CD',
         navLinkActiveColorBackground:'#F1EEFE',
         navItemHoverColorBackground: 'rgba(0,0,0,0.05)',
-        headerBackground: '#FFFFFF',
+        headerBackground: '#5A0',
         listItemHoverBackground: 'rgba(0,0,0,0.05)',
         // headerColor:
         // headerLinkColor: 

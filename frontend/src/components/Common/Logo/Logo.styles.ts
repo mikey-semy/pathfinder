@@ -6,8 +6,9 @@ export const LogoContainer = styled.div`
     justify-content: center;
     align-items: center;
     height: var(--logo-container-height, 83px);
-    width: 100%;
+    margin-right: auto;
 `;
+
 export const LogoLink = styled(Link)`
     display: flex;
     align-items: center;
@@ -27,7 +28,8 @@ export const LogoText = styled.span`
     font-family: var(--logo-font, 'Squada One');
     font-size: var(--logo-font-size-small, 24px);
     font-weight: var(--logo-font-weight, 600);
-    color: var(--logo-color);
+    color: var(--logo-color, #fff);
+    text-shadow: var(--logo-text-shadow, 2px 2px 5px rgba(0,0,0,0.2));
     text-transform: uppercase;
     user-select: none;
     -webkit-user-drag: none;

@@ -9,6 +9,7 @@ export const Variables = createGlobalStyle`
     --background: ${({ theme }) => theme.colors.background};
     --sidebar-background: ${({ theme }) => theme.colors.sidebarBackground};
     --logo-color: ${({ theme }) => theme.colors.logoColor};
+    
     --nav-label-color: ${({ theme }) => theme.colors.navLabelColor};
     --nav-icon-color: ${({ theme }) => theme.colors.navIconColor};
     --nav-label-active-color: ${({ theme }) => theme.colors.navLabelActiveColor};
@@ -42,7 +43,7 @@ export const Variables = createGlobalStyle`
     --logo-width: 50px;
     --logo-height: 80px;
     --logo-padding: 12px 24px;
-    --logo-font-size-small: 24px;
+    --logo-font-size-small: 48px;
     --logo-font-size-large: 58px;
     --nav-icon-size: 20px;
     --nav-label-font-size: 16px;
@@ -73,7 +74,7 @@ export const Variables = createGlobalStyle`
     --box-shadow-default: 0 0 0 1px var(--box-shadow-color);
     --nav-collapse-button-box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     --tab-active-border: 2px solid var(--tab-active-color);
-    
+    --logo-text-shadow: 4px 4px 10px rgba(0,0,0,0.2);
     // Transitions
     --transition-default: 0.3s ease-in-out;
 
