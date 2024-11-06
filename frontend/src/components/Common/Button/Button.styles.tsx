@@ -35,4 +35,5 @@ export const ButtonTitle = styled.span`
     align-items: center;
     text-transform: uppercase;
     font-weight: 600;
+    color: #000;
 `;
