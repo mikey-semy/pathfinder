@@ -12,8 +12,8 @@ const AppContent: React.FC = () => {
   return (
     <StyledThemeProvider theme={isDark ? DarkTheme : LightTheme}>
       <TypographyStyles />
-      <GlobalStyles />
       <ResetStyles />
+      <GlobalStyles />
       <Variables />
       <AppContainer>
         <Header />   
