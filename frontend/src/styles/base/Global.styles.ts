@@ -9,6 +9,7 @@ export const Global = createGlobalStyle`
 
     body {
         background-color: var(--background);
+        height: 100%;
         &.no-scroll {
             overflow: hidden;
         }
