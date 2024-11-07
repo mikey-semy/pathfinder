@@ -4,8 +4,10 @@ export interface Option {
 };
 
 export interface SelectTypes {
+    label: string;
+    name: string;
     options: Option[];
-    value: number | null;
-    onChange: (value: number | null) => void;
+    value: string | null;
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     placeholder: string;
 };

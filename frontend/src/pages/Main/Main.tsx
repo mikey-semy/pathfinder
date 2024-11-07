@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
-import { Form, Input} from '../../components';
+import { Form, Input, Select } from '../../components';
+import { STEEL_GRADES } from '../../utils/constants/steelGrades';
+import { FormState } from './Main.types';
 
 const Main: React.FC = () => {
-  const [state, setState] = useState({})
+  const [state, setState] = useState<FormState>({
+    initialWireSize: "4",
+    finalWireSize: "1.30",
+    totalTransitions: "9",
+    firstReduction: "0.00",
+    drawingVelocity: "9.00",
+    initialBlockNumber: "1",
+    lastDieReduction: "10",
+    lastBlockNumber: "9",
+    carbonRange: null
+  })
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -12,67 +24,67 @@ const Main: React.FC = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted!');
+    console.log('Form submitted!', state);
   };
   return (
         <>
           <Form onSubmit={handleSubmit}>
             <Input 
               type="number"
-              name="initialDiameter"
+              name="initialWireSize"
               label="Начальный диаметр (мм):"
               onChange={handleChange}
-              value="4"
+              value={state.initialWireSize}
               min={4}
               max={8}
               step="1"
             />
             <Input 
               type="number"
-              name="finalDiameter"
+              name="finalWireSize"
               label="Конечный диаметр (мм):"
               onChange={handleChange}
-              value="1.30"
+              value={state.finalWireSize}
               min={0.80}
               max={4.00}
               step="0.01"
             />
             <Input 
               type="number"
-              name="firstReduction"
-              label="Процент обжатия (%):"
-              onChange={handleChange}
-              value="0.00"
-              min={0}
-              max={100}
-              step="0.01"
-            />
-            <Input 
-              type="number"
-              name="transitionsCount"
+              name="totalTransitions"
               label="Количество переходов волочения:"
               onChange={handleChange}
-              value="9"
+              value={state.totalTransitions}
               min={1}
               max={20}
               step="1"
             />
             <Input 
               type="number"
-              name="finalSpeed"
+              name="firstReduction"
+              label="Процент обжатия (%):"
+              onChange={handleChange}
+              value={state.firstReduction}
+              min={0}
+              max={100}
+              step="0.01"
+            />
+            <Input 
+              type="number"
+              name="drawingVelocity"
               label="Скорость волочения (м/с):"
               onChange={handleChange}
-              value="9.00"
+              value={state.drawingVelocity}
               min={0.1}
               max={20}
               step="0.1"
             />
             <Input 
               type="number"
-              name="startingBlock"
+              name="initialBlockNumber"
               label="Номер начального блока:"
               onChange={handleChange}
-              value="1"
+              value={state.initialBlockNumber}
               min={1}
               max={10}
               step="1"
@@ -82,7 +94,7 @@ const Main: React.FC = () => {
               name="lastDieReduction"
               label="Процент обжатия (%):"
               onChange={handleChange}
-              value="10"
+              value={state.lastDieReduction}
               min={0}
               max={100}
               step="0.01"
@@ -92,10 +104,18 @@ const Main: React.FC = () => {
               name="lastBlockNumber"
               label="Номер последнего блока:"
               onChange={handleChange}
-              value="9"
+              value={state.lastBlockNumber}
               min={1}
               max={10}
               step="1"
+            />
+            <Select
+              label="Содержание углерода (%):"
+              name="carbonRange"
+              options={STEEL_GRADES}
+              value={state.carbonRange}
+              onChange={handleChange}
+              placeholder=""
             />
           </Form>
         </>

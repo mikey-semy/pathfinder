@@ -2,40 +2,40 @@ import { calculateAverageReduction } from './averageReduction';
 
 /**
  *  Функция вычисления полного распределения переходов волочения
- *  @param finalDiameter - Конечный диаметр проволоки в миллиметрах
- *  @param initialDiameter - Начальный диаметр проволоки в миллиметрах
- *  @param transitionsCount - Количество переходов волочения
+ *  @param finalWireSize - Конечный диаметр проволоки в миллиметрах
+ *  @param initialWireSize - Начальный диаметр проволоки в миллиметрах
+ *  @param totalTransitions - Количество переходов волочения
  *  @param lastDieReduction - Последний переход волочения
  *  @returns Полное распределение переходов волочения
  */
 
-interface ReductionDistributionParams {
-    finalDiameter: number;
-    initialDiameter: number;
-    transitionsCount: number;
+interface relativeCompressionDistributionRatioParams {
+    finalWireSize: number;
+    initialWireSize: number;
+    totalTransitions: number;
     lastDieReduction: number;
   }
   
   export const calculateFullReduction = ({
-    finalDiameter,
-    initialDiameter,
-    transitionsCount,
+    finalWireSize,
+    initialWireSize,
+    totalTransitions,
     lastDieReduction
-  }: ReductionDistributionParams): number => {
+  }: relativeCompressionDistributionRatioParams): number => {
     const averageReduction = calculateAverageReduction({
-      finalDiameter,
-      initialDiameter,
-      transitionsCount
+      finalWireSize,
+      initialWireSize,
+      totalTransitions
     });
   
-    return (averageReduction * 100 - lastDieReduction * 100) / ((transitionsCount - 1) / 2);
+    return (averageReduction * 100 - lastDieReduction * 100) / ((totalTransitions - 1) / 2);
   }
 
 // Применение:
 //   const result = calculateFullReduction({
-//     finalDiameter: 1.30,      // Конечный диаметр проволоки в миллиметрах
-//     initialDiameter: 4.0,     // Начальный диаметр проволоки в миллиметрах
-//     transitionsCount: 9,      // Количество переходов волочения
+//     finalWireSize: 1.30,      // Конечный диаметр проволоки в миллиметрах
+//     initialWireSize: 4.0,     // Начальный диаметр проволоки в миллиметрах
+//     totalTransitions: 9,      // Количество переходов волочения
 //     lastDieReduction: 0.20    // Процент обжатия на последнем переходе(в данном случае 20%)
 //   });
   

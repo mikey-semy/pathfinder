@@ -1,33 +1,33 @@
 export interface WireDrawingInput {
     // Тип заготовки (строковый литерал)
-    workpieceType: string;  // например: 'k85', 'k70' и т.д.
+    wireType: string;  // например: 'k85', 'k70' и т.д.
   
     // Начальный диаметр проволоки в миллиметрах
-    initialDiameter: number;  // диапазон обычно от 4.0 до 8.0 мм
+    initialWireSize: number;  // диапазон обычно от 4.0 до 8.0 мм
   
     // Конечный диаметр проволоки в миллиметрах
-    finalDiameter: number;    // диапазон обычно от 0.8 до 4.0 мм
+    finalWireSize: number;    // диапазон обычно от 0.8 до 4.0 мм
   
     // Процент обжатия на первом переходе
     firstReduction: number;   // от 0 до 100%
   
     // Количество переходов волочения
-    transitionsCount: number; // целое число от 1 до 20
+    totalTransitions: number; // целое число от 1 до 20
   
     // Предел прочности начальный, Н/мм²
-    tensileStrength: number;  //? обычно от 0 до 1000 Н/мм² = tesileStrength(workpieceType), где workpieceType - тип заготовки 
+    tensileStrength: number;  //? обычно от 0 до 1000 Н/мм² = tesileStrength(wireType), где wireType - тип заготовки 
   
-    // Скорость волочения на последнем переходе, метров в секунду
-    finalSpeed: number;     // обычно от 0.1 до 20 м/с - или drawingSpeed
+    // Скорость волочения, метров в секунду
+    drawingVelocity: number;     // обычно от 0.1 до 20 м/с - или drawingSpeed
   
     // Номер начального блока
-    startingBlock: number;    // целое число, обычно от 1 до 10
+    initialBlockNumber: number;    // целое число, обычно от 1 до 10
   
     // Коэффициент распределения относительного обжатия
-    reductionDistribution: number; //? от 0 до 1 = reductionDistribution(finalDiameter, initialDiameter, transitionsCount, lastDieReduction)
+    relativeCompressionDistributionRatio: number; //? от 0 до 1 = relativeCompressionDistributionRatio(finalWireSize, initialWireSize, totalTransitions, lastDieReduction)
   
     // Содержание углерода в процентах
-    carbonContent: {
+    carbonRange: {
       min: number;           // минимальное значение, %
       max: number;           // максимальное значение, %
       validate?: () => boolean; // метод валидации: max должен быть больше min
@@ -43,10 +43,10 @@ export interface WireDrawingInput {
   
   export interface DrawingBlocksParams {
     // Суммарное обжатие (89.4%)
-    totalReduction: number; //? от 0 до 100% = totalReduction(finalDiameter, initialDiameter)
+    totalReduction: number; //? от 0 до 100% = totalReduction(finalWireSize, initialWireSize)
 
     // Среднее обжатие (22.10%)
-    averageReduction: number; //? от 0 до 100% = averageReduction(finalDiameter, initialDiameter, transitionsCount)
+    averageReduction: number; //? от 0 до 100% = averageReduction(finalWireSize, initialWireSize, totalTransitions)
 
     // Процент обжатия на последнем переходе (20.0%)
     lastDieReduction: number; // от 0 до 100%
@@ -55,14 +55,14 @@ export interface WireDrawingInput {
     lastBlockNumber: string; // текст
 
     // № блока со средним обжатием (No. 5)
-    averageBlockNumber: string; //? текст = calculateAverageBlock(transitionsCount, startingBlock)
+    averageBlockNumber: string; //? текст = calculateAverageBlock(totalTransitions, initialBlockNumber)
 
     // Входная скорость (1 м/с)
-    inputSpeed: number; //? метров в секунду = calculateInputSpeed(finalDiameter, initialDiameter, finalSpeed)
+    inputSpeed: number; //? метров в секунду = calculateInputSpeed(finalWireSize, initialWireSize, drawingVelocity)
   }
 
   // Типы заготовок
-  export enum WorkpieceType {
+  export enum wireType {
     D82 = 'D8-2',
     FM5 = 'FM5',
     K07 = 'K07',
@@ -85,7 +85,7 @@ export interface WireDrawingInput {
   }
   
   // Применение:
-  // const workpieceOptions = Object.values(WorkpieceType).map(type => (
+  // const workpieceOptions = Object.values(wireType).map(type => (
   //   <option key={type} value={type}>{type}</option>
   // ));
   // <select value={selectedType} onChange={handleTypeChange}>

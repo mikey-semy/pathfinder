@@ -1,18 +1,18 @@
 /**
  * Функция для вычисления номера блока со средним обжатием
- * @param {number} transitionsCount - Количество переходов волочения
- * @param {number} startingBlock - Номер начального блока
+ * @param {number} totalTransitions - Количество переходов волочения
+ * @param {number} initialBlockNumber - Номер начального блока
  */
 interface AverageBlockParams {
-    transitionsCount: number;
-    startingBlock: number;
+    totalTransitions: number;
+    initialBlockNumber: number;
   }
   
 export const calculateAverageBlock = ({
-  transitionsCount,
-  startingBlock
+  totalTransitions,
+  initialBlockNumber
 }: AverageBlockParams): string => {
-  const middleBlockNumber = (transitionsCount / 2) - 0.5 + startingBlock;
+  const middleBlockNumber = (totalTransitions / 2) - 0.5 + initialBlockNumber;
   
   if (middleBlockNumber % 1 === 0) {
     return `No. ${middleBlockNumber}`;
@@ -25,8 +25,8 @@ export const calculateAverageBlock = ({
 }
   
 //   const averageBlock = calculateAverageBlock({
-//     transitionsCount: 9,  // Количество переходов
-//     startingBlock: 1      // Начальный блок
+//     totalTransitions: 9,  // Количество переходов
+//     initialBlockNumber: 1      // Начальный блок
 //   });
   
 //   console.log(`Блок со средним обжатием: ${averageBlock}`);
