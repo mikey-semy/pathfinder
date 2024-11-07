@@ -39,9 +39,6 @@ export interface WireDrawingInput {
       max: number;           // максимальное значение
       validate?: () => boolean; // метод валидации: max должен быть больше min
     };
-  
-    
-    lastDieReduction: number; 
   }
   
   export interface DrawingBlocksParams {
