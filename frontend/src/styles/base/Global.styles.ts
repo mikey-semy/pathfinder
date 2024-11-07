@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 export const Global = createGlobalStyle`
 
+    #root {
+        height: 100%;
+    }
+    
     html, body {
         overscroll-behavior-x: none;
         touch-action: pan-y pinch-zoom;
@@ -9,7 +13,6 @@ export const Global = createGlobalStyle`
 
     body {
         background-color: var(--background);
-        height: 100%;
         &.no-scroll {
             overflow: hidden;
         }
