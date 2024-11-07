@@ -16,9 +16,9 @@ export const AppContainer = styled.div`
     background-attachment: fixed;
     background-size: cover;
 
-    @media (max-width: 1024px) {
-        height: 100vh;
-    }
+    // @media (max-width: 1024px) {
+    //     height: 100vh;
+    // }
 `;
 
 export const MainContainer = styled.div`
