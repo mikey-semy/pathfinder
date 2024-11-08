@@ -1,5 +1,3 @@
-import { SteelGradeOption } from '../../utils/constants/SteelGrades/steekGrades.types';
-
 export interface FormState {
     initialWireSize: string;
     finalWireSize: string;
@@ -9,5 +7,5 @@ export interface FormState {
     initialBlockNumber: string;
     lastDieReduction: string;
     lastBlockNumber: string;
-    carbonRange: SteelGradeOption;
+    carbonRange: string;
 }

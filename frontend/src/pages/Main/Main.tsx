@@ -13,7 +13,7 @@ const Main: React.FC = () => {
     initialBlockNumber: "1",
     lastDieReduction: "10",
     lastBlockNumber: "9",
-    carbonRange: STEEL_GRADES[0]
+    carbonRange: JSON.stringify(STEEL_GRADES[0])
   })
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -37,7 +37,7 @@ const Main: React.FC = () => {
               label="Марка стали:"
               name="carbonRange"
               options={STEEL_GRADES}
-              value={(state.carbonRange || STEEL_GRADES[0]).label}
+              value={JSON.parse(state.carbonRange || JSON.stringify(STEEL_GRADES[0])).label}
               onChange={handleChange}
               placeholder=""
             />
