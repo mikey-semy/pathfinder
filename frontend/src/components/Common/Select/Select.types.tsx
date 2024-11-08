@@ -7,7 +7,7 @@ export interface SelectTypes {
     label: string;
     name: string;
     options: Option[];
-    value: string | null;
+    value: string;
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    placeholder: string;
+    placeholder?: string;
 };

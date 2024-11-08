@@ -1,11 +1,11 @@
 export interface FormState {
-    initialWireSize: string;
-    finalWireSize: string;
-    totalTransitions: string;
-    firstReduction: string;
-    drawingVelocity: string;
-    initialBlockNumber: string;
-    lastDieReduction: string;
-    lastBlockNumber: string;
-    carbonRange: string;
+    initialWireSize: number;
+    finalWireSize: number;
+    totalTransitions: number;
+    firstReduction: number;
+    drawingVelocity: number;
+    initialBlockNumber: number;
+    lastDieReduction: number;
+    lastBlockNumber: number;
+    steelGrade: string
 }
