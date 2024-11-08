@@ -21,27 +21,26 @@ const Main: React.FC = () => {
     min: 0.42, 
     max: 0.50 
   });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
-    console.log(name)
     if (name === 'steelGrade') {
-      setState(prev => ({ ...prev, steelGrade: value }));
-    } else {
-      setState(prev => ({ ...prev, [name]: value }));
-    }
-  
-    if (name === 'steelGrade') {
+      console.log(value);
       const selectedGrade = STEEL_GRADES.find(grade => grade.label === value);
-      console.log(selectedGrade);
-      if (selectedGrade) {
-        setCarbonRange({ 
-          min: selectedGrade.value.min, 
-          max: selectedGrade.value.max 
-        });
-      }
-    }
+      console.log(selectedGrade)
+      setState(prev => ({ ...prev, [name]: value }));
+      setCarbonRange({ 
+        min: selectedGrade?.value.min ?? 0, 
+        max: selectedGrade?.value.max ?? 0
+      });
+    };
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setState(prev => ({ ...prev, [name]: value }));
   }
-  
+    
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Форма отправлены!');
@@ -60,14 +59,14 @@ const Main: React.FC = () => {
               name="steelGrade"
               options={STEEL_GRADES}
               value={formValues.steelGrade} 
-              onChange={handleChange}
+              onChange={handleSelectChange}
               placeholder="Выберите марку стали"
             />
             <Input 
               label="Начальный диаметр (мм):"
               type="number"
               name="initialWireSize"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.initialWireSize}
               min={4}
               max={8}
@@ -77,7 +76,7 @@ const Main: React.FC = () => {
               label="Конечный диаметр (мм):"
               type="number"
               name="finalWireSize"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.finalWireSize}
               min={0.80}
               max={4.00}
@@ -87,7 +86,7 @@ const Main: React.FC = () => {
               label="Количество переходов волочения:"
               type="number"
               name="totalTransitions"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.totalTransitions}
               min={1}
               max={20}
@@ -97,7 +96,7 @@ const Main: React.FC = () => {
               label="Процент обжатия (%):"
               type="number"
               name="firstReduction"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.firstReduction}
               min={0}
               max={100}
@@ -107,7 +106,7 @@ const Main: React.FC = () => {
               label="Скорость волочения (м/с):"
               type="number"
               name="drawingVelocity"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.drawingVelocity}
               min={0.1}
               max={20}
@@ -117,7 +116,7 @@ const Main: React.FC = () => {
               label="Номер начального блока:"
               type="number"
               name="initialBlockNumber"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.initialBlockNumber}
               min={1}
               max={10}
@@ -127,7 +126,7 @@ const Main: React.FC = () => {
               label="Процент обжатия (%):"
               type="number"
               name="lastDieReduction"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.lastDieReduction}
               min={0}
               max={100}
@@ -137,7 +136,7 @@ const Main: React.FC = () => {
               label="Номер последнего блока:"
               type="number"
               name="lastBlockNumber"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={formValues.lastBlockNumber}
               min={1}
               max={10}
