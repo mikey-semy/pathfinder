@@ -25,14 +25,18 @@ const Main: React.FC = () => {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
     if (name === 'steelGrade') {
-      console.log(value);
       const selectedGrade = STEEL_GRADES.find(grade => grade.label === value);
-      console.log(selectedGrade)
-      setState(prev => ({ ...prev, [name]: value }));
-      setCarbonRange({ 
-        min: selectedGrade?.value.min ?? 0, 
-        max: selectedGrade?.value.max ?? 0
-      });
+      if (selectedGrade) {
+        console.log(`Selected steel grade: ${selectedGrade.label}`);
+        console.log(`Carbon content - minimum: ${selectedGrade.value.min}, maximum: ${selectedGrade.value.max}`);
+        setState(prev => ({ ...prev, [name]: value }));
+        setCarbonRange({ 
+          min: selectedGrade.value.min!, 
+          max: selectedGrade.value.max!
+        });
+      } else {
+        console.log('No steel grade selected');
+      }
     };
   };
 
