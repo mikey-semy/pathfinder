@@ -7,5 +7,5 @@ export interface FormState {
     initialBlockNumber: number;
     lastDieReduction: number;
     lastBlockNumber: number;
-    steelGrade: string
+    steelGrade: string;
 }
