@@ -47,10 +47,9 @@ export const Reset = createGlobalStyle`
         border-spacing: 0;
     }
 
-    input{
+    input, select, textarea{
         appearance: none;
         -webkit-appearance: none;
-        border-radius: 0;
     }
 `;
 export default Reset;
