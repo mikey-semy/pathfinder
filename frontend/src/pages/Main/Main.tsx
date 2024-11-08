@@ -23,7 +23,7 @@ const Main: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setState(prev => ({ ...prev, [name]: value }));
-    
+  
     if (name === 'steelGrade') {
       const selectedGrade = STEEL_GRADES.find(grade => grade.label === value);
       if (selectedGrade) {
