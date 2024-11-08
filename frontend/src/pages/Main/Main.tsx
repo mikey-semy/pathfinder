@@ -35,7 +35,7 @@ const Main: React.FC = () => {
           <Form onSubmit={handleSubmit}>
             <Select
               label="Марка стали:"
-              name="steelGrades"
+              name="carbonRange"
               options={STEEL_GRADES}
               value={state.carbonRange || STEEL_GRADES[0].value}
               onChange={handleChange}

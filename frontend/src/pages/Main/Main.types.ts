@@ -7,5 +7,5 @@ export interface FormState {
     initialBlockNumber: string;
     lastDieReduction: string;
     lastBlockNumber: string;
-    carbonRange: string | null;
+    carbonRange: string;
 }
