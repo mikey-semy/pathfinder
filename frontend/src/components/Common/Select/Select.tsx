@@ -20,8 +20,8 @@ const Select: React.FC<SelectTypes> = (
                 onChange={onChange}
             >
                 <option value="">{placeholder}</option>
-                {options.map((option) => (
-                    <option key={option.value} value={option.value}>
+                {options.map((option, index) => (
+                    <option key={index} value={option.label}>
                         {option.label}
                     </option>
                 ))}
