@@ -11,7 +11,8 @@ export const InputField = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  width: 50%;
+  width: 250px;
+  
   &:focus {
     outline: none;
     border-color: #5A0;

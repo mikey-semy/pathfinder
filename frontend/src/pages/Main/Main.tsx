@@ -24,11 +24,23 @@ const Main: React.FC = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted!', state);
+    console.log('Form submitted!');
+    console.log('Form data:');
+    Object.keys(state).forEach(key => {
+      console.log(`${key}: ${state[key as keyof FormState]}`);
+    });
   };
   return (
         <>
           <Form onSubmit={handleSubmit}>
+            <Select
+              label="Марка стали:"
+              name="steelGrades"
+              options={STEEL_GRADES}
+              value={state.carbonRange}
+              onChange={handleChange}
+              placeholder=""
+            />
             <Input 
               type="number"
               name="initialWireSize"
@@ -108,14 +120,6 @@ const Main: React.FC = () => {
               min={1}
               max={10}
               step="1"
-            />
-            <Select
-              label="Содержание углерода (%):"
-              name="carbonRange"
-              options={STEEL_GRADES}
-              value={state.carbonRange}
-              onChange={handleChange}
-              placeholder=""
             />
           </Form>
         </>
