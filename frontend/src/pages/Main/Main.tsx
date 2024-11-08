@@ -27,15 +27,15 @@ const Main: React.FC = () => {
     if (name === 'steelGrade') {
       const selectedGrade = STEEL_GRADES.find(grade => grade.label === value);
       if (selectedGrade) {
-        console.log(`Selected steel grade: ${selectedGrade.label}`);
-        console.log(`Carbon content - minimum: ${selectedGrade.value.min}, maximum: ${selectedGrade.value.max}`);
+        console.log(`Выбранная марка стали: ${selectedGrade.label}`);
+        console.log(`Содержание углерода - минимум: ${selectedGrade.value.min}, максимум: ${selectedGrade.value.max}`);
         setState(prev => ({ ...prev, [name]: value }));
         setCarbonRange({ 
           min: selectedGrade.value.min!, 
           max: selectedGrade.value.max!
         });
       } else {
-        console.log('No steel grade selected');
+        console.log('Не выбрана марка стали');
       }
     };
   };
