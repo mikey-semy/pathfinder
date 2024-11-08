@@ -13,7 +13,7 @@ const Main: React.FC = () => {
     initialBlockNumber: "1",
     lastDieReduction: "10",
     lastBlockNumber: "9",
-    carbonRange: null
+    carbonRange: STEEL_GRADES[0].value
   })
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -37,7 +37,7 @@ const Main: React.FC = () => {
               label="Марка стали:"
               name="steelGrades"
               options={STEEL_GRADES}
-              value={state.carbonRange}
+              value={STEEL_GRADES[0].value}
               onChange={handleChange}
               placeholder=""
             />
