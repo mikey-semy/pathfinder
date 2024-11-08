@@ -1,5 +1,6 @@
 import React from 'react';
-import { SelectTypes } from './Select.types'
+import { SelectTypes } from './Select.types';
+import { SelectContainer, SelectField } from './Select.styles';
 
 const Select: React.FC<SelectTypes> = (
     {
@@ -11,9 +12,9 @@ const Select: React.FC<SelectTypes> = (
         placeholder
     }) => {
     return (
-        <>
+        <SelectContainer>
             {label && <label>{label}</label>}
-            <select
+            <SelectField
                 name={name}
                 value={value || ''}
                 onChange={onChange}
@@ -24,8 +25,8 @@ const Select: React.FC<SelectTypes> = (
                         {option.label}
                     </option>
                 ))}
-            </select>
-        </>
+            </SelectField>
+        </SelectContainer>
     );
 };
 
