@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Select } from '../../components';
-import { STEEL_GRADES } from '../../utils/constants/steelGrades';
+import { STEEL_GRADES } from '../../utils/constants/SteelGrades/steelGrades';
 import { FormState } from './Main.types';
 
 const Main: React.FC = () => {
@@ -13,7 +13,7 @@ const Main: React.FC = () => {
     initialBlockNumber: "1",
     lastDieReduction: "10",
     lastBlockNumber: "9",
-    carbonRange: STEEL_GRADES[0].value
+    carbonRange: STEEL_GRADES[0]
   })
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -37,7 +37,7 @@ const Main: React.FC = () => {
               label="Марка стали:"
               name="carbonRange"
               options={STEEL_GRADES}
-              value={state.carbonRange || STEEL_GRADES[0].value}
+              value={(state.carbonRange || STEEL_GRADES[0]).label}
               onChange={handleChange}
               placeholder=""
             />
