@@ -54,7 +54,7 @@ const Main: React.FC = () => {
               options={STEEL_GRADES}
               value={formValues.steelGrade} 
               onChange={handleChange}
-              placeholder=""
+              placeholder="Выберите марку стали"
             />
             <Input 
               label="Начальный диаметр (мм):"
