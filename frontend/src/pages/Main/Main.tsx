@@ -16,14 +16,18 @@ const Main: React.FC = () => {
     lastBlockNumber: 9,
     steelGrade: '45'
   })
-  const [steelGradeValue, setSteelGradeValue] = useState(formValues.steelGrade);
+
   const [carbonRange, setCarbonRange] = useState<{ min: number; max: number }>({ 
     min: 0.42, 
     max: 0.50 
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setState(prev => ({ ...prev, [name]: value }));
+    if (name === 'steelGrade') {
+      setState(prev => ({ ...prev, steelGrade: value }));
+    } else {
+      setState(prev => ({ ...prev, [name]: value }));
+    }
   
     if (name === 'steelGrade') {
       const selectedGrade = STEEL_GRADES.find(grade => grade.label === value);
@@ -53,8 +57,8 @@ const Main: React.FC = () => {
               label="Марка стали:"
               name="steelGrade"
               options={STEEL_GRADES}
-              value={steelGradeValue} 
-              onChange={(e) => setSteelGradeValue(e.target.value)}
+              value={formValues.steelGrade} 
+              onChange={handleChange}
               placeholder="Выберите марку стали"
             />
             <Input 
