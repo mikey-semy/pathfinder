@@ -23,6 +23,7 @@ const Main: React.FC = () => {
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
+    console.log(name)
     if (name === 'steelGrade') {
       setState(prev => ({ ...prev, steelGrade: value }));
     } else {
@@ -31,6 +32,7 @@ const Main: React.FC = () => {
   
     if (name === 'steelGrade') {
       const selectedGrade = STEEL_GRADES.find(grade => grade.label === value);
+      console.log(selectedGrade);
       if (selectedGrade) {
         setCarbonRange({ 
           min: selectedGrade.value.min, 
