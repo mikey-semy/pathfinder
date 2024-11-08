@@ -37,7 +37,7 @@ const Main: React.FC = () => {
               label="Марка стали:"
               name="steelGrades"
               options={STEEL_GRADES}
-              value={STEEL_GRADES[0].value}
+              value={state.carbonRange || STEEL_GRADES[0].value}
               onChange={handleChange}
               placeholder=""
             />
