@@ -1,1 +1,1 @@
-export type { WireDrawingInput } from './WireDrawing.types';
+export type { WireDrawingParams } from './WireDrawing.types';

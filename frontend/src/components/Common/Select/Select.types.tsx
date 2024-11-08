@@ -4,8 +4,9 @@ export interface Option {
 };
 
 export interface SelectTypes {
+    as?: React.ComponentType;
     label: string;
-    name: string;
+    id: string;
     options: Option[];
     value: string;
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;

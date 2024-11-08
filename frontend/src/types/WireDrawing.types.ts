@@ -1,6 +1,6 @@
-export interface WireDrawingInput {
+export interface WireDrawingParams {
     // Тип заготовки (строковый литерал)
-    wireType: string;  // например: 'k85', 'k70' и т.д.
+    // wireType: string;  // например: 'k85', 'k70' и т.д.
   
     // Начальный диаметр проволоки в миллиметрах
     initialWireSize: number;  // диапазон обычно от 4.0 до 8.0 мм
@@ -26,33 +26,17 @@ export interface WireDrawingInput {
     // Коэффициент распределения относительного обжатия
     relativeCompressionDistributionRatio: number; //? от 0 до 1 = relativeCompressionDistributionRatio(finalWireSize, initialWireSize, totalTransitions, lastDieReduction)
   
-    // Содержание углерода в процентах
-    carbonRange: {
-      min: number;           // минимальное значение, %
-      max: number;           // максимальное значение, %
-      validate?: () => boolean; // метод валидации: max должен быть больше min
-    };
-  
-    // Предел прочности патентированной заготовки, кгс/мм²
-    patentedTensileStrength: {
-      min: number;           // минимальное значение
-      max: number;           // максимальное значение
-      validate?: () => boolean; // метод валидации: max должен быть больше min
-    };
-  }
-  
-  export interface DrawingBlocksParams {
     // Суммарное обжатие (89.4%)
     totalReduction: number; //? от 0 до 100% = totalReduction(finalWireSize, initialWireSize)
 
     // Среднее обжатие (22.10%)
     averageReduction: number; //? от 0 до 100% = averageReduction(finalWireSize, initialWireSize, totalTransitions)
 
-    // Процент обжатия на последнем переходе (20.0%)
+    // Обжатие в последней волоке (20.0%)
     lastDieReduction: number; // от 0 до 100%
 
     // № блока перед намоткой (No. 9)
-    lastBlockNumber: string; // текст
+    lastBlockNumber: number; // целое число, 1 до 11
 
     // № блока со средним обжатием (No. 5)
     averageBlockNumber: string; //? текст = calculateAverageBlock(totalTransitions, initialBlockNumber)

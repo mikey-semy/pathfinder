@@ -36,4 +36,8 @@ export const LogoText = styled.span`
     letter-spacing: var(--logo-letter-spacing, 1px);
     transition: all var(--transition-default);
     white-space: nowrap;
+
+    @media (max-width: 1024px) {
+
+    }
 `;

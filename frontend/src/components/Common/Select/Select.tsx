@@ -1,11 +1,12 @@
 import React from 'react';
 import { SelectTypes } from './Select.types';
-import { SelectContainer, SelectField } from './Select.styles';
+import { SelectContainer, SelectField, SelectLabel, SelectOption } from './Select.styles';
 
 const Select: React.FC<SelectTypes> = (
     {
+        as,
         label,
-        name, 
+        id, 
         options, 
         value, 
         onChange, 
@@ -13,17 +14,18 @@ const Select: React.FC<SelectTypes> = (
     }) => {
     return (
         <SelectContainer>
-            {label && <label>{label}</label>}
+            {label && <SelectLabel>{label}</SelectLabel>}
             <SelectField
-                name={name}
+                as={as}
+                id={id}
                 value={value || ''}
                 onChange={onChange}
             >
-                <option value="">{placeholder}</option>
+                <SelectOption value="">{placeholder}</SelectOption>
                 {options.map((option, index) => (
-                    <option key={index} value={option.label}>
+                    <SelectOption key={index} value={option.label}>
                         {option.label}
-                    </option>
+                    </SelectOption>
                 ))}
             </SelectField>
         </SelectContainer>

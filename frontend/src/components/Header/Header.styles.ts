@@ -14,4 +14,7 @@ export const HeaderContainer = styled.header`
     /* background-color: var(--header-background, #5A0); */
     /* box-shadow: var(--box-shadow-default); */
     z-index: 999;   
+    @media (max-width: 1024px) {
+        height: 50px;
+    }
 `;

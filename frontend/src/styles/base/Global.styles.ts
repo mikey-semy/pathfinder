@@ -34,5 +34,24 @@ export const Global = createGlobalStyle`
         /* background-color: var(--link-background, #FFFFFF); */
     }
 
+    input, select {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        width: 80px;
+
+        &:focus {
+          outline: none;
+          border-color: #5A0;
+        }
+
+        &:disabled {
+          background-color: #f5f5f5;
+          cursor: not-allowed;
+        }
+    }
+
 `;
 export default Global;

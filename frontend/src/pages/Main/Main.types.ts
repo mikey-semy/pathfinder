@@ -8,4 +8,6 @@ export interface FormState {
     lastDieReduction: number;
     lastBlockNumber: number;
     steelGrade: string;
+    patentedTensileStrengthMin: number;
+    patentedTensileStrengthMax: number;
 }
