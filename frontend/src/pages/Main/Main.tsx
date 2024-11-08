@@ -16,6 +16,7 @@ const Main: React.FC = () => {
     lastBlockNumber: 9,
     steelGrade: '45'
   })
+  const [steelGradeValue, setSteelGradeValue] = useState(formValues.steelGrade);
   const [carbonRange, setCarbonRange] = useState<{ min: number; max: number }>({ 
     min: 0.42, 
     max: 0.50 
@@ -52,8 +53,8 @@ const Main: React.FC = () => {
               label="Марка стали:"
               name="steelGrade"
               options={STEEL_GRADES}
-              value={formValues.steelGrade} 
-              onChange={handleChange}
+              value={steelGradeValue} 
+              onChange={(e) => setSteelGradeValue(e.target.value)}
               placeholder="Выберите марку стали"
             />
             <Input 
