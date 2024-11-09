@@ -9,9 +9,11 @@ export interface InputTypes {
     unitLabel?: string;
     error?: string;
     as?: React.ComponentType;
+    asLabel?: React.ComponentType;
     step?: string | number;
     min?: number;
     max?: number;
     precision?: number;
     hasError?: boolean;
+    readOnly?: boolean;
 }

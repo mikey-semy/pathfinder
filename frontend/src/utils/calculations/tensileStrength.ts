@@ -2,24 +2,26 @@ import { TENSILE_STRENGTH_TABLE } from '../constants/tensileStrengthTable';
 
 /**
  * Получение предела прочности начального для определенного типа заготовки
- * @param wireType тип заготовки
+ * @param steelGrade тип заготовки
  * @returns предел прочности начальный
  */
-export const getInitialTensileStrength = (wireType: string): number => {
+const getInitialTensileStrength = (steelGrade: string): number => {
   const row = TENSILE_STRENGTH_TABLE.find(
-    row => row.quality.toLowerCase() === wireType.toLowerCase()
+    row => row.quality.toLowerCase() === steelGrade.toLowerCase()
   );
   
   if (!row) {
-    throw new Error(`Тип заготовки ${wireType} не найден в таблице!`);
+    throw new Error(`Тип заготовки ${steelGrade} не найден в таблице!`);
   }
   
   return row.initial;
 }
 
 // Использование:
-// const calculateTensileStrength = (wireType: string) => {
-//     const tensileStrength = getInitialTensileStrength(wireType);
-//     console.log(`Предел прочности для ${wireType}: ${tensileStrength} Н/мм²`);
+// const calculateTensileStrength = (steelGrade: string) => {
+//     const tensileStrength = getInitialTensileStrength(steelGrade);
+//     console.log(`Предел прочности для ${steelGrade}: ${tensileStrength} Н/мм²`);
 //     return tensileStrength;
 //   };
+
+export default getInitialTensileStrength;

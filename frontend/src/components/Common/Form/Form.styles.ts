@@ -7,7 +7,7 @@ export const FormContainer = styled.form`
     gap: 20px;
     max-width: 800px;
     width: 400px;
-    margin: 10px auto;
+    
     padding: 24px;
     margin-top: 20px;
     border: 1px solid #ccc;
@@ -28,13 +28,39 @@ export const FormSection = styled.div`
     gap: 10px;
 `;
 
-export const FormActions = styled.div`
+export const FormFieldSet = styled.fieldset`
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 16px;
+    margin-bottom: 16px;
+`;
+
+export const FormFieldSetLegend = styled.legend`
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    padding: 0 8px;
+    background: white;
+`;
+
+export const FormActions = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-    align-items: end;
+    align-items: center;
+    gap: 10px;
 `;
 
 export const ErrorMessage = styled.div`
+    position: absolute;
+    left: 0;
+    top: -10px;
+    width: 50%;
     color: red;
     font-size: 14px;
     margin-bottom: 10px;

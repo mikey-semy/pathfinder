@@ -1,12 +1,12 @@
-import { FormState } from './Main.types';
+import { FormInputsTypes } from '../../pages/Main/Main.types';
 
 //**
 // * Валидация данных ввода
 // *
-// * @param {FormState} input
+// * @param {FormInputsTypes} input
 // * @returns {boolean}
 // */
-export const validateFormInput = (input: FormState): boolean => {
+export const validateFormInput = (input: FormInputsTypes): boolean => {
 
     if (input.initialBlockNumber > input.lastBlockNumber) {
       throw new Error('Первый блок не должен быть больше последнего');
@@ -19,11 +19,17 @@ export const validateFormInput = (input: FormState): boolean => {
     if (input.lastBlockNumber > input.totalTransitions) {
       throw new Error('Последний блок больше количества переходов');
     }
+
+    if (input.patentedTensileStrengthMax <= input.patentedTensileStrengthMin) {
+      throw new Error('Максимальное ВСР не может быть меньше или равно минимальному');
+    }
     
     if (input.patentedTensileStrengthMin >= input.patentedTensileStrengthMax) {
       throw new Error('Минимальное ВСР не может быть больше или равно максимальному');
     }
-  
+    
+    
+
     if (input.patentedTensileStrengthMin < 0 || input.patentedTensileStrengthMin > 5000) {
       throw new Error('Минимальное ВСР должно быть между 0 и 5000 H/мм²');
     }

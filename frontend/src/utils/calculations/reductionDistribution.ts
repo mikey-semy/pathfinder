@@ -16,7 +16,7 @@ interface relativeCompressionDistributionRatioParams {
     lastDieReduction: number;
   }
   
-  export const calculateFullReduction = ({
+  const calculateFullReduction = ({
     finalWireSize,
     initialWireSize,
     totalTransitions,
@@ -27,8 +27,8 @@ interface relativeCompressionDistributionRatioParams {
       initialWireSize,
       totalTransitions
     });
-  
-    return (averageReduction * 100 - lastDieReduction * 100) / ((totalTransitions - 1) / 2);
+    let result = (averageReduction * 100 - lastDieReduction * 100) / ((totalTransitions - 1) / 2);
+    return Number((result/100).toFixed(2));
   }
 
 // Применение:
@@ -43,3 +43,5 @@ interface relativeCompressionDistributionRatioParams {
 //     Средняя величина единичного обжатия: ${result.averageReduction * 100}%
 //     Коэффициент распределения: ${result.distribution}
 //   `);
+
+export default calculateFullReduction;

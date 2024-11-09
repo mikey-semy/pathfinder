@@ -10,11 +10,12 @@ interface TotalReductionParams {
     initialWireSize: number;
   }
   
-  export const calculateTotalReduction = ({
+  const calculateTotalReduction = ({
     finalWireSize,
     initialWireSize
   }: TotalReductionParams): number => {
-    return 1 - Math.pow(finalWireSize / initialWireSize, 2);
+    let result = 1 - Math.pow(finalWireSize / initialWireSize, 2);
+    return Number((result * 100).toFixed(2));
   }
   
 // Применение:
@@ -24,3 +25,4 @@ interface TotalReductionParams {
 //   });
   
 //   console.log(`Суммарное обжатие: ${(totalReduction * 100).toFixed(2)}%`);
+export default calculateTotalReduction;

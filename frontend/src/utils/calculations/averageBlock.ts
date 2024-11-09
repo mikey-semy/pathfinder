@@ -8,19 +8,19 @@ interface AverageBlockParams {
     initialBlockNumber: number;
   }
   
-export const calculateAverageBlock = ({
+const calculateAverageBlock = ({
   totalTransitions,
   initialBlockNumber
 }: AverageBlockParams): string => {
   const middleBlockNumber = (totalTransitions / 2) - 0.5 + initialBlockNumber;
   
   if (middleBlockNumber % 1 === 0) {
-    return `No. ${middleBlockNumber}`;
+    return `${middleBlockNumber}`;
   } 
   else {
     const lowerBlock = Math.floor(middleBlockNumber);
     const upperBlock = Math.ceil(middleBlockNumber);
-    return `No's ${lowerBlock} & ${upperBlock}`;
+    return `${lowerBlock} & ${upperBlock}`;
   }
 }
   
@@ -30,3 +30,4 @@ export const calculateAverageBlock = ({
 //   });
   
 //   console.log(`Блок со средним обжатием: ${averageBlock}`);
+export default calculateAverageBlock;

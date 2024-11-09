@@ -1,6 +1,6 @@
 export interface WireDrawingParams {
     // Тип заготовки (строковый литерал)
-    // wireType: string;  // например: 'k85', 'k70' и т.д.
+    // steelGrade: string;  // например: 'k85', 'k70' и т.д.
   
     // Начальный диаметр проволоки в миллиметрах
     initialWireSize: number;  // диапазон обычно от 4.0 до 8.0 мм
@@ -15,7 +15,7 @@ export interface WireDrawingParams {
     totalTransitions: number; // целое число от 1 до 20
   
     // Предел прочности начальный, Н/мм²
-    tensileStrength: number;  //? обычно от 0 до 1000 Н/мм² = tesileStrength(wireType), где wireType - тип заготовки 
+    tensileStrength: number;  //? обычно от 0 до 1000 Н/мм² = tesileStrength(steelGrade), где steelGrade - тип заготовки 
   
     // Скорость волочения, метров в секунду
     drawingVelocity: number;     // обычно от 0.1 до 20 м/с - или drawingSpeed
@@ -46,7 +46,7 @@ export interface WireDrawingParams {
   }
 
   // Типы заготовок
-  export enum wireType {
+  export enum steelGrade {
     D82 = 'D8-2',
     FM5 = 'FM5',
     K07 = 'K07',
@@ -69,7 +69,7 @@ export interface WireDrawingParams {
   }
   
   // Применение:
-  // const workpieceOptions = Object.values(wireType).map(type => (
+  // const workpieceOptions = Object.values(steelGrade).map(type => (
   //   <option key={type} value={type}>{type}</option>
   // ));
   // <select value={selectedType} onChange={handleTypeChange}>

@@ -17,9 +17,9 @@ interface AverageReductionParams {
     initialWireSize,
     totalTransitions
   }: AverageReductionParams): number => {
-    return 1 - Math.pow(
+    let result = 1 - Math.pow(
       Math.pow(finalWireSize / initialWireSize, 2),
-      1 / totalTransitions
-    );
+      1 / totalTransitions);
+    return Number((100 * result).toFixed(2));
   }
-  
+  export default calculateAverageReduction;

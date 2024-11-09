@@ -11,12 +11,13 @@ interface InputSpeedParams {
     drawingVelocity: number;       // Скорость волочения, метров в секунду или drawingSpeed
 }
   
-export const calculateInputSpeed = ({
+const calculateInputSpeed = ({
   finalWireSize,
   initialWireSize,
   drawingVelocity
 }: InputSpeedParams): number => {
-  return Math.pow(finalWireSize, 2) * drawingVelocity / Math.pow(initialWireSize, 2);
+  let result = Math.pow(finalWireSize, 2) * drawingVelocity / Math.pow(initialWireSize, 2);
+  return Number(result.toFixed(2));
 }
 
 // Применение:
@@ -28,3 +29,4 @@ export const calculateInputSpeed = ({
   
 //   console.log(`Входная скорость: ${inputSpeed.toFixed(2)} м/с`);
   
+export default calculateInputSpeed;

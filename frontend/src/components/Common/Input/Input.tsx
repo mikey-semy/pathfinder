@@ -10,6 +10,7 @@ const Input: React.FC<InputTypes> = ({
     disabled = false,
     id,
     label,
+    asLabel,
     unitLabel,
     error,
     as,
@@ -18,9 +19,11 @@ const Input: React.FC<InputTypes> = ({
     max,
     precision = 2,
     hasError,
+    readOnly = false,
   }) => {
     const [inputValue, setInputValue] = useState(initialValue);
     const [localError, setLocalError] = useState<string | null>(null);
+    
     useEffect(() => {
         setInputValue(initialValue);
     }, [initialValue]);
@@ -60,7 +63,7 @@ const Input: React.FC<InputTypes> = ({
   return (
 
     <InputContainer>
-        {label && <InputLabel>{label}</InputLabel>}
+        {label && <InputLabel as={asLabel}>{label}</InputLabel>}
         <InputField
             type={type}
             inputMode="decimal"
@@ -75,6 +78,7 @@ const Input: React.FC<InputTypes> = ({
             min={min}
             max={max}
             hasError={!!error || !!localError || hasError}
+            readOnly={readOnly}
         />
         {unitLabel && <UnitLabel>{unitLabel}</UnitLabel>}
         {(error || localError) && <ErrorText>{error || localError}</ErrorText>}

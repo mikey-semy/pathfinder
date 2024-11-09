@@ -48,7 +48,17 @@ export const UnitLabel = styled.span`
 `;
 
 export const ErrorText = styled.span`
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
     color: #ff3333;
     font-size: 12px;
     margin-top: 4px;
+    padding: 4px 8px;
 `;

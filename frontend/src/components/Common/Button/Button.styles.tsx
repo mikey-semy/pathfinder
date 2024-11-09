@@ -10,6 +10,7 @@ export const ButtonContainer = styled.button`
     cursor: pointer;
     padding: 10px;
     transition: opacity 0.3s ease;
+    user-select: none;
     
     &:focus {
         outline: none;
@@ -28,7 +29,7 @@ export const ButtonContainer = styled.button`
 `;
 
 export const ButtonIcon = styled.span`
-    display: none;
+    
 `;
 
 export const ButtonTitle = styled.span`

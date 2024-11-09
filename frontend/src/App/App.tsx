@@ -4,7 +4,7 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { ThemeProvider, useTheme } from '../contexts';
 import { Header } from '../components';
 import { TypographyStyles, GlobalStyles, ResetStyles, Variables, LightTheme, DarkTheme } from '../styles';
-import { AppContainer, MainContainer } from './App.styles';
+import { AppContainer, MainWrapper } from './App.styles';
 
 
 const AppContent: React.FC = () => {
@@ -17,9 +17,9 @@ const AppContent: React.FC = () => {
       <Variables />
       <AppContainer>
         <Header />   
-        <MainContainer>
+        <MainWrapper>
           <Outlet />
-        </MainContainer>
+        </MainWrapper>
       </AppContainer>
     </StyledThemeProvider>
   );
